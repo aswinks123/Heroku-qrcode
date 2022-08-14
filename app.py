@@ -105,7 +105,7 @@ def QR():
 
 #To allow reloading of web browser and mentioning the port
 app.add_url_rule('/','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
-app.run(host="localhost",port=8080,debug=True)
+app.run(host="localhost",debug=True)
 
 
 #calling our main function.Program start here
