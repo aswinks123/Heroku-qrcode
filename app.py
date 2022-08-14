@@ -30,7 +30,7 @@ def QR():
 
     set_env(title="QR-Code Generator") #For setting the window title bar text(tab text)
 
-    put_html(r"""<h1  align="center"><strong>Color QR-Code Generator</strong></h1>""") #App Name in Main screen
+    put_html(r"""<h1  align="center"><strong>QR-Code Generator</strong></h1>""") #App Name in Main screen
     img = open('logo.png', 'rb').read()  #logo
     put_image(img, width='100px')#size of image
 
@@ -113,13 +113,12 @@ def QR():
 
 #To allow reloading of web browser and mentioning the port
 app.add_url_rule('/qr','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
-# app.run(port=44556 ,debug=True)
+
 if __name__ =='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument("-p","--port",type=int,default=8080)
     args=parser.parse_args()
 
-    start_server(QR,port=args.port,debug=True)
-#calling our main function.Program start here
-# QR()
+    start_server(QR,port=args.port)
+
 
