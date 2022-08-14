@@ -19,7 +19,7 @@ from pywebio.session import run_js
 
 #Creating  a flask app
 
-app=Flask(__name__)
+#app=Flask(__name__)
 
 #Main function that creates the QR code
 def QR():
@@ -104,8 +104,8 @@ def QR():
 
 
 #To allow reloading of web browser and mentioning the port
-app.add_url_rule('/','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
-app.run(debug=True)
+#app.add_url_rule('/','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
+#app.run(debug=True)
 
 
 #calling our main function.Program start here
