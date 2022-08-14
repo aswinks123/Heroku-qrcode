@@ -30,7 +30,7 @@ def QR():
 
     set_env(title="QR-Code Generator") #For setting the window title bar text(tab text)
 
-    put_html(r"""<h1  align="center"><strong>📱Color QR-Code Generator</strong></h1>""") #App Name in Main screen
+    put_html(r"""<h1  align="center"><strong>Color QR-Code Generator</strong></h1>""") #App Name in Main screen
     img = open('logo.png', 'rb').read()  #logo
     put_image(img, width='100px')#size of image
 
@@ -39,8 +39,8 @@ def QR():
 
     # Adding Progress bar
     put_processbar('bar')
-    for i in range(1, 3):
-        set_processbar('bar', i / 2)
+    for i in range(1, 4):
+        set_processbar('bar', i / 3)
         time.sleep(0.1)
 
     #getting foreground color
@@ -48,8 +48,8 @@ def QR():
 
     # Adding Progress bar
     put_processbar('bar')
-    for i in range(1, 3):
-        set_processbar('bar', i / 2)
+    for i in range(1, 4):
+        set_processbar('bar', i / 3)
         time.sleep(0.1)
 
     #getting background color
@@ -77,7 +77,7 @@ def QR():
     put_file('qr-image.jpg', content, 'Download QR code')
 
 
-    #To show About sessiono
+    #To show About session
     def clicked():
         popup('About Us', [
             put_html('<h2>Created by Aswin Ks</h2>'),
@@ -90,7 +90,7 @@ def QR():
     global like
     like = 0
 
-    #To register the like count(in beta stage)
+    #To register the like count(in beta stage).Thsi feature is yet to be implemented.
     def liked():
         global like
         like += 1
@@ -107,13 +107,14 @@ def QR():
 
 #To allow reloading of web browser and mentioning the port
 app.add_url_rule('/qr','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
-# app.run(port=44556 ,debug=True)
+
+
+#To Start the Server
 if __name__ =='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument("-p","--port",type=int,default=8080)
     args=parser.parse_args()
 
     start_server(QR,port=args.port)
-#calling our main function.Program start here
-# QR()
+
 
