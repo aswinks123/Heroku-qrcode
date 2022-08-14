@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template("index.html")
+    print("not Amstrong")
 
 
 @app.route('/amstrong/<int:n>')
