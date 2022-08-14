@@ -5,7 +5,6 @@
 
 #Importing Modules
 import argparse
-
 from pywebio.input import *
 from pywebio.output import *
 from flask import  Flask
@@ -107,8 +106,8 @@ def QR():
 
 
 #To allow reloading of web browser and mentioning the port
-app.add_url_rule('/','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
-app.run(port=44556 ,debug=True)
+app.add_url_rule('/qr','webio_view',webio_view(QR),methods=['GET','POST','OPTIONS'])
+# app.run(port=44556 ,debug=True)
 if __name__ =='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument("-p","--port",type=int,default=8080)
@@ -116,5 +115,5 @@ if __name__ =='__main__':
 
     start_server(QR,port=args.port)
 #calling our main function.Program start here
-QR()
+# QR()
 
