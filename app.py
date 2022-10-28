@@ -30,7 +30,7 @@ def QR():
 
     set_env(title="QR-Code Generator") #For setting the window title bar text(tab text)
 
-    put_html(r"""<h1  align="center"><strong>QR-Code Generator</strong></h1>""") #App Name in Main screen
+    put_html(r"""<h1  align="center"><strong>Color-QR: QRCode Generator</strong></h1>""") #App Name in Main screen
     img = open('logo.png', 'rb').read()  #logo
     put_image(img, width='100px')#size of image
 
@@ -44,7 +44,8 @@ def QR():
         time.sleep(0.2)
 
     #getting foreground color
-    foreground = select("Choose Foreground Color", options=['Black', 'Red', 'Blue', 'White','Yellow','Cyan','Magenta'], required=True)
+    allcolors = ['Black', 'Red', 'Blue', 'White', 'Yellow', 'Cyan', 'Magenta']
+    foreground = select("Choose Foreground Color", options=allcolors, required=True)
 
     # Adding Progress bar
     put_processbar('bar')
@@ -53,7 +54,10 @@ def QR():
         time.sleep(0.2)
 
     #getting background color
-    background = select("Choose Background Color", options=['White', 'Red', 'Black', 'Blue','Yellow','Cyan','Magenta'], required=True)
+    newcolor=allcolors
+    if foreground in newcolor:
+        newcolor.remove(foreground)
+    background = select("Choose Background Color", options=newcolor, required=True)
 
     #Creating QR code using the provided data
     feature = qrcode.QRCode(version=1, box_size=40, border=3)
@@ -94,7 +98,7 @@ def QR():
     def liked():
         global like
         like += 1
-        put_info("Thanks For your Feedback!")
+        put_info("Thank you for your feedback!")
 
 
 
